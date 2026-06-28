@@ -21,7 +21,6 @@ const Contact: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      // Replace with your actual Formspree endpoint URL
       const response = await fetch("https://formspree.io/f/mwvdlnoe", {
         method: "POST",
         headers: {
@@ -148,9 +147,10 @@ const Contact: React.FC = () => {
                 whileTap={{ scale: 0.98 }}
                 type="submit"
                 disabled={isSubmitting}
-                className={`flex-1 bg-accent-primary hover:bg-accent-secondary text-white font-delius text-lg py-4 rounded-xl shadow-[0_0_20px_rgba(90,78,251,0.4)] transition-colors ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+                className={`flex-1 flex items-center justify-center gap-2 bg-accent-primary hover:bg-accent-secondary text-white font-delius text-lg py-4 rounded-xl shadow-[0_0_20px_rgba(90,78,251,0.4)] transition-colors ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
               >
-                {isSubmitting ? 'Sending...' : 'Send via Email →'}
+                {isSubmitting ? 'Sending...' : 'Send via'}
+                <img src={`${import.meta.env.BASE_URL}images/communication.png`} alt="email icon" className="w-8 h-8 " />
               </motion.button>
 
               <motion.button
@@ -158,9 +158,9 @@ const Contact: React.FC = () => {
                 whileTap={{ scale: 0.98 }}
                 type="button"
                 onClick={handleWhatsAppRedirect}
-                className="flex-1 bg-[#25D366] hover:bg-[#128C7E] text-white font-delius text-lg py-4 rounded-xl shadow-[0_0_20px_rgba(37,211,102,0.4)] transition-colors"
+                className="flex-1 flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#128C7E] text-white font-delius text-lg py-4 rounded-xl shadow-[0_0_20px_rgba(37,211,102,0.4)] transition-colors"
               >
-                Send via WhatsApp 💬
+                Send via <img src={`${import.meta.env.BASE_URL}images/whatsapp.png`} alt="whatsapp icon" className="w-8 h-8 " />
               </motion.button>
             </div>
           </form>
